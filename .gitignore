@@ -1,0 +1,17 @@
+@"
+.venv311/
+edgeface_env/
+__pycache__/
+*.pyc
+
+*.pt
+*.pth
+*.onnx
+
+*.zip
+*.tar
+*.tar.gz
+
+.vscode/
+.idea/
+"@ | Out-File -Encoding utf8 .gitignore
