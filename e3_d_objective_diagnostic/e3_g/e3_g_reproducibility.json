@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "checkpoint": "D:\\RP\\Experiment_3_Uncertainty_best.pt",
+  "checkpoint_sha256": "821c312dc332ecbfed64272b50e867bf72dff2bc341518df284226228c86fa03",
+  "feature_root": "D:\\RP\\e3_d_objective_diagnostic\\frozen_features",
+  "pair_protocol": "all same-row genuine pairs plus one deterministic cyclic different-subject impostor per RGB row",
+  "model_training": false,
+  "confidence_training": false,
+  "global_embedding_extraction": "frozen checkpoint, torch.no_grad, CPU, shuffle=False",
+  "test_threshold_tuning": false,
+  "regions": [
+    "left_eye",
+    "right_eye",
+    "nose",
+    "mouth"
+  ]
+}

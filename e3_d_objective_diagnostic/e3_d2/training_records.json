@@ -1,0 +1,125 @@
+{
+  "base_initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+  "checkpoint": "D:\\RP\\Experiment_3_Uncertainty_best.pt",
+  "training_scale": 0.00135366382334,
+  "thresholds": {
+    "p25": 7.019937e-05,
+    "p50": 0.000161975622,
+    "p75": 0.000305652618
+  },
+  "device": "cpu",
+  "seed": 42,
+  "batch_size": 64,
+  "epochs": 3,
+  "learning_rate": 0.001,
+  "records": [
+    {
+      "variant": "original",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "28ad23e1a5735f54e9791f3ee45f55202d7c4b0f7094da77453560c9342ff3ff",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.0,
+      "ranking_weight": 1.0,
+      "reported_variant": "original",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "normalized_fixed",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "e3b2408b65f383624a39a8b2dd02faaf212ac5f8aabad4cd3c63dc823d1ceea6",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.0,
+      "ranking_weight": 1.0,
+      "reported_variant": "normalized_fixed",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "ranking",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "58cc071dee27e935a4418b60dfb69b5a5948ed3a480e3e215fe87b316319191e",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 7.019937e-05,
+      "ranking_weight": 1.0,
+      "reported_variant": "ranking_p25",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "ranking",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "16f1b79a3734440b211dd07f99625cd2a4b64b527aa9a531d0d8ad79a13b398a",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.000161975622,
+      "ranking_weight": 1.0,
+      "reported_variant": "ranking_p50",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "ranking",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "b78d9295a8b8b57accbdefc754d8f30a5ae225d2281bd49b2b9d4dacbb8bbc8d",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.000305652618,
+      "ranking_weight": 1.0,
+      "reported_variant": "ranking_p75",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "combined",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "0a1d9790cbf5329dc33e2e47d541385c433b6e47bf3737d0214646093248497d",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 7.019937e-05,
+      "ranking_weight": 1.0,
+      "reported_variant": "combined_p25",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "combined",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "65587a127b8ffdf535692485a329089f48017df750ee2bf9d0d232b72e6cb967",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.000161975622,
+      "ranking_weight": 1.0,
+      "reported_variant": "combined_p50",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "combined",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "d93794f5c71aa5224441d276eac601cbdfe6959b67820e45bc8674b3482e491b",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.000305652618,
+      "ranking_weight": 1.0,
+      "reported_variant": "combined_p75",
+      "initial_hash_matches_all": true
+    },
+    {
+      "variant": "calibration",
+      "initial_head_hash": "8611869dfd67f84a15cd77dda3ec38eef935668d18612161c4e6ff431104569b",
+      "final_head_hash": "28cd26d4846063c2be0dfa7dd8c132ae581ca26243cfce8795bba5fa2c1805a6",
+      "changed": true,
+      "epochs": 3,
+      "learning_rate": 0.001,
+      "threshold": 0.0,
+      "ranking_weight": 1.0,
+      "reported_variant": "calibration",
+      "initial_hash_matches_all": true
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "checkpoint": "D:\\RP\\Experiment_3_Uncertainty_best.pt",
+  "checkpoint_sha256": "821c312dc332ecbfed64272b50e867bf72dff2bc341518df284226228c86fa03",
+  "split": "train",
+  "sample_count": 1772,
+  "seed": 42,
+  "device": "cpu",
+  "batch_size": 64,
+  "regions": [
+    "left_eye",
+    "right_eye",
+    "nose",
+    "mouth"
+  ],
+  "sigmas": [
+    3.0,
+    7.0,
+    15.0
+  ],
+  "modes": [
+    "rgb_only",
+    "thermal_only",
+    "both"
+  ],
+  "clean_artifact": "clean_features.pt",
+  "conditions": [
+    {
+      "name": "rgb_only_left_eye_sigma_03",
+      "mode": "rgb_only",
+      "corrupted_region": "left_eye",
+      "sigma": 3.0,
+      "artifact": "rgb_only_left_eye_sigma_03.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "rgb_only_left_eye_sigma_07",
+      "mode": "rgb_only",
+      "corrupted_region": "left_eye",
+      "sigma": 7.0,
+      "artifact": "rgb_only_left_eye_sigma_07.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "rgb_only_left_eye_sigma_15",
+      "mode": "rgb_only",
+      "corrupted_region": "left_eye",
+      "sigma": 15.0,
+      "artifact": "rgb_only_left_eye_sigma_15.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "rgb_only_right_eye_sigma_03",
+      "mode": "rgb_only",
+      "corrupted_region": "right_eye",
+      "sigma": 3.0,
+      "artifact": "rgb_only_right_eye_sigma_03.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "rgb_only_right_eye_sigma_07",
+      "mode": "rgb_only",
+      "corrupted_region": "right_eye",
+      "sigma": 7.0,
+      "artifact": "rgb_only_right_eye_sigma_07.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "rgb_only_right_eye_sigma_15",
+      "mode": "rgb_only",
+      "corrupted_region": "right_eye",
+      "sigma": 15.0,
+      "artifact": "rgb_only_right_eye_sigma_15.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "rgb_only_nose_sigma_03",
+      "mode": "rgb_only",
+      "corrupted_region": "nose",
+      "sigma": 3.0,
+      "artifact": "rgb_only_nose_sigma_03.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "rgb_only_nose_sigma_07",
+      "mode": "rgb_only",
+      "corrupted_region": "nose",
+      "sigma": 7.0,
+      "artifact": "rgb_only_nose_sigma_07.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "rgb_only_nose_sigma_15",
+      "mode": "rgb_only",
+      "corrupted_region": "nose",
+      "sigma": 15.0,
+      "artifact": "rgb_only_nose_sigma_15.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "rgb_only_mouth_sigma_03",
+      "mode": "rgb_only",
+      "corrupted_region": "mouth",
+      "sigma": 3.0,
+      "artifact": "rgb_only_mouth_sigma_03.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "rgb_only_mouth_sigma_07",
+      "mode": "rgb_only",
+      "corrupted_region": "mouth",
+      "sigma": 7.0,
+      "artifact": "rgb_only_mouth_sigma_07.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "rgb_only_mouth_sigma_15",
+      "mode": "rgb_only",
+      "corrupted_region": "mouth",
+      "sigma": 15.0,
+      "artifact": "rgb_only_mouth_sigma_15.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "thermal_only_left_eye_sigma_03",
+      "mode": "thermal_only",
+      "corrupted_region": "left_eye",
+      "sigma": 3.0,
+      "artifact": "thermal_only_left_eye_sigma_03.pt",
+      "bytes": 12311950
+    },
+    {
+      "name": "thermal_only_left_eye_sigma_07",
+      "mode": "thermal_only",
+      "corrupted_region": "left_eye",
+      "sigma": 7.0,
+      "artifact": "thermal_only_left_eye_sigma_07.pt",
+      "bytes": 12311950
+    },
+    {
+      "name": "thermal_only_left_eye_sigma_15",
+      "mode": "thermal_only",
+      "corrupted_region": "left_eye",
+      "sigma": 15.0,
+      "artifact": "thermal_only_left_eye_sigma_15.pt",
+      "bytes": 12311950
+    },
+    {
+      "name": "thermal_only_right_eye_sigma_03",
+      "mode": "thermal_only",
+      "corrupted_region": "right_eye",
+      "sigma": 3.0,
+      "artifact": "thermal_only_right_eye_sigma_03.pt",
+      "bytes": 12312029
+    },
+    {
+      "name": "thermal_only_right_eye_sigma_07",
+      "mode": "thermal_only",
+      "corrupted_region": "right_eye",
+      "sigma": 7.0,
+      "artifact": "thermal_only_right_eye_sigma_07.pt",
+      "bytes": 12312029
+    },
+    {
+      "name": "thermal_only_right_eye_sigma_15",
+      "mode": "thermal_only",
+      "corrupted_region": "right_eye",
+      "sigma": 15.0,
+      "artifact": "thermal_only_right_eye_sigma_15.pt",
+      "bytes": 12312029
+    },
+    {
+      "name": "thermal_only_nose_sigma_03",
+      "mode": "thermal_only",
+      "corrupted_region": "nose",
+      "sigma": 3.0,
+      "artifact": "thermal_only_nose_sigma_03.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "thermal_only_nose_sigma_07",
+      "mode": "thermal_only",
+      "corrupted_region": "nose",
+      "sigma": 7.0,
+      "artifact": "thermal_only_nose_sigma_07.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "thermal_only_nose_sigma_15",
+      "mode": "thermal_only",
+      "corrupted_region": "nose",
+      "sigma": 15.0,
+      "artifact": "thermal_only_nose_sigma_15.pt",
+      "bytes": 12311890
+    },
+    {
+      "name": "thermal_only_mouth_sigma_03",
+      "mode": "thermal_only",
+      "corrupted_region": "mouth",
+      "sigma": 3.0,
+      "artifact": "thermal_only_mouth_sigma_03.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "thermal_only_mouth_sigma_07",
+      "mode": "thermal_only",
+      "corrupted_region": "mouth",
+      "sigma": 7.0,
+      "artifact": "thermal_only_mouth_sigma_07.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "thermal_only_mouth_sigma_15",
+      "mode": "thermal_only",
+      "corrupted_region": "mouth",
+      "sigma": 15.0,
+      "artifact": "thermal_only_mouth_sigma_15.pt",
+      "bytes": 12311905
+    },
+    {
+      "name": "both_left_eye_sigma_03",
+      "mode": "both",
+      "corrupted_region": "left_eye",
+      "sigma": 3.0,
+      "artifact": "both_left_eye_sigma_03.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "both_left_eye_sigma_07",
+      "mode": "both",
+      "corrupted_region": "left_eye",
+      "sigma": 7.0,
+      "artifact": "both_left_eye_sigma_07.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "both_left_eye_sigma_15",
+      "mode": "both",
+      "corrupted_region": "left_eye",
+      "sigma": 15.0,
+      "artifact": "both_left_eye_sigma_15.pt",
+      "bytes": 12311830
+    },
+    {
+      "name": "both_right_eye_sigma_03",
+      "mode": "both",
+      "corrupted_region": "right_eye",
+      "sigma": 3.0,
+      "artifact": "both_right_eye_sigma_03.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "both_right_eye_sigma_07",
+      "mode": "both",
+      "corrupted_region": "right_eye",
+      "sigma": 7.0,
+      "artifact": "both_right_eye_sigma_07.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "both_right_eye_sigma_15",
+      "mode": "both",
+      "corrupted_region": "right_eye",
+      "sigma": 15.0,
+      "artifact": "both_right_eye_sigma_15.pt",
+      "bytes": 12311845
+    },
+    {
+      "name": "both_nose_sigma_03",
+      "mode": "both",
+      "corrupted_region": "nose",
+      "sigma": 3.0,
+      "artifact": "both_nose_sigma_03.pt",
+      "bytes": 12311706
+    },
+    {
+      "name": "both_nose_sigma_07",
+      "mode": "both",
+      "corrupted_region": "nose",
+      "sigma": 7.0,
+      "artifact": "both_nose_sigma_07.pt",
+      "bytes": 12311706
+    },
+    {
+      "name": "both_nose_sigma_15",
+      "mode": "both",
+      "corrupted_region": "nose",
+      "sigma": 15.0,
+      "artifact": "both_nose_sigma_15.pt",
+      "bytes": 12311706
+    },
+    {
+      "name": "both_mouth_sigma_03",
+      "mode": "both",
+      "corrupted_region": "mouth",
+      "sigma": 3.0,
+      "artifact": "both_mouth_sigma_03.pt",
+      "bytes": 12311721
+    },
+    {
+      "name": "both_mouth_sigma_07",
+      "mode": "both",
+      "corrupted_region": "mouth",
+      "sigma": 7.0,
+      "artifact": "both_mouth_sigma_07.pt",
+      "bytes": 12311721
+    },
+    {
+      "name": "both_mouth_sigma_15",
+      "mode": "both",
+      "corrupted_region": "mouth",
+      "sigma": 15.0,
+      "artifact": "both_mouth_sigma_15.pt",
+      "bytes": 12311721
+    }
+  ],
+  "feature_shape": [
+    1772,
+    4,
+    100
+  ],
+  "distance_shape": [
+    1772,
+    4
+  ],
+  "distance_definition": "1 - cosine_similarity(rgb_regional_features, thermal_regional_features, dim=-1)",
+  "delta_definition": "corrupted_matching_distances - clean_matching_distances",
+  "rgb_feature_change_definition": "1 - cosine_similarity(clean_rgb, corrupted_rgb, dim=-1)",
+  "thermal_feature_change_definition": "1 - cosine_similarity(clean_thermal, corrupted_thermal, dim=-1)",
+  "negative_delta_preserved": true,
+  "clean_images_modified": false,
+  "existing_frozen_artifacts_modified": false,
+  "model_parameters_unchanged": true,
+  "checkpoint_unchanged": true,
+  "deterministic_blur_note": "Gaussian blur is deterministic for fixed inputs; repeated stochastic draws were not fabricated.",
+  "elapsed_seconds": 619.562248000002
+}

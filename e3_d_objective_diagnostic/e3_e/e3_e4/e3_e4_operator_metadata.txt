@@ -1,0 +1,11 @@
+operator,localized_additive_gaussian_sensor_noise
+interpretation,8-bit intensity standard deviation converted to normalized domain
+sigma_levels,3 7 15
+normalized_noise_std,0.0235294118 0.0549019608 0.1176470588
+draws_per_condition,5
+seeds,101 202 303 404 505
+split,train
+geometry,unchanged landmark boxes and 112x112 tensors
+negative_delta,preserved
+checkpoint_sha256,821c312dc332ecbfed64272b50e867bf72dff2bc341518df284226228c86fa03
+elapsed_seconds,17.90625710000313

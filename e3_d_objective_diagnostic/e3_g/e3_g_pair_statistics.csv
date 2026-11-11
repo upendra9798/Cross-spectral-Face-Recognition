@@ -1,0 +1,4 @@
+split,seed,genuine_pairs,impostor_pairs,total_pairs,impostor_to_genuine_ratio,rgb_subject_count,thermal_subject_count,union_subject_count,same_subject_genuine_check,different_subject_impostor_check
+train,42,1772,1772,3544,1.0,100,100,100,True,True
+val,42,176,176,352,1.0,10,10,10,True,True
+test,42,565,565,1130,1.0,32,32,32,True,True

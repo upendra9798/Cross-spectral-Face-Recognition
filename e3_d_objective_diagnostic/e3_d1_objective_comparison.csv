@@ -1,0 +1,7 @@
+objective,mathematical_test,finite_loss,finite_gradient,actual_train_probe_loss,actual_train_probe_gradient_mean,valid_ranking_pairs,uses_train_only_statistics,model_training_performed
+original,pass,True,True,0.0012456811964511871,0.0009753460144565906,,False,False
+normalized_batch,pass,True,True,0.9999919723282716,7.839523172163959e-09,,False,False
+normalized_fixed,pass,True,True,0.9202293619543562,7.790101371644897e-05,,True,False
+ranking,pass,True,True,0.6931471805599453,2.710505431213761e-20,745,True,False
+combined,pass,True,True,1.6133765425143016,7.790101371644902e-05,745,True,False
+calibration,pass,True,True,0.08103902917066425,4.410061603652857e-06,,False,False

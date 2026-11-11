@@ -22,7 +22,7 @@ ROOT = Path(__file__).parent
 def load_experiment_model(checkpoint_path: Path) -> torch.nn.Module:
     model = EdgeFaceTransformerAdapter(copy.deepcopy(load_pretrained_edgeface()))
     checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
-    model.load_state_dict(checkpoint["model_state_dict"])
+    model.load_state_dict(checkpoint["model_state_dict"], strict=False)
     return model.eval()
 
 

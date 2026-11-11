@@ -1,0 +1,11 @@
+{
+  "training_scale": 0.0013536638233381793,
+  "ranking_thresholds": [
+    0.0,
+    7.019937038421631e-05,
+    0.00016197562217712402,
+    0.0003056526184082031
+  ],
+  "threshold_source": "train matching distances only",
+  "synthetic_script": "e3_d1_synthetic_tests.py"
+}

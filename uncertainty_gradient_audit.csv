@@ -1,0 +1,3 @@
+modality,loss,objective,gradient_mean,gradient_std,gradient_min,gradient_max,zero_gradient_count,near_lower_clamp_count,near_upper_clamp_count,lower_clamped_count,upper_clamped_count,total_count
+rgb,-0.8602809435733764,combined_rgb_thermal,0.9967590159443717,0.00112524344416423,0.9913061876259446,0.9989340584187105,0,0,0,0,0,704
+thermal,-0.8602809435733764,combined_rgb_thermal,0.9967590159443717,0.00112524344416423,0.9913061876259446,0.9989340584187105,0,0,0,0,0,704

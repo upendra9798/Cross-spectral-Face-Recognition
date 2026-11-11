@@ -1,0 +1,93 @@
+{
+  "reference": "D:\\RP\\e3_d_objective_diagnostic\\e3_d2\\e3_d2_checkpoints\\ranking_p50_heads.pt",
+  "threshold": 0.000161975622,
+  "seed": 42,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "epochs": 10,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6716027281114033,
+      "validation_loss": 0.6638987064361572,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_01.pt"
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6627934404781887,
+      "validation_loss": 0.653009037176768,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_02.pt"
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.6527774546827588,
+      "validation_loss": 0.640714426835378,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_03.pt"
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6418547034263611,
+      "validation_loss": 0.6275429129600525,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_04.pt"
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6305397387061801,
+      "validation_loss": 0.6140265663464864,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_05.pt"
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.6193581691810063,
+      "validation_loss": 0.6007378101348877,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_06.pt"
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6086504544530597,
+      "validation_loss": 0.5880667765935262,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_07.pt"
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.5986538827419281,
+      "validation_loss": 0.5764083663622538,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_08.pt"
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.589500218629837,
+      "validation_loss": 0.5657687187194824,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_09.pt"
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.5811747525419507,
+      "validation_loss": 0.5560081402460734,
+      "train_valid_ranking_pairs_per_batch": 189.85714285714286,
+      "validation_valid_ranking_pairs_per_batch": 175.0,
+      "checkpoint": "D:\\RP\\e3_d_objective_diagnostic\\e3_d4\\checkpoints\\epoch_10.pt"
+    }
+  ],
+  "reference_file_hash": "8ccf15fd340fc96e2b5b61cc0607b5e9213c9383bc6fc53f7a54e2e70c5519b0",
+  "initial_state_hash": "16f1b79a3734440b211dd07f99625cd2a4b64b527aa9a531d0d8ad79a13b398a",
+  "final_state_hash": "0648da9ecf2fbe82df3778a849bdd15bd697056de20475ac4b1ae6d1f67a124f"
+}

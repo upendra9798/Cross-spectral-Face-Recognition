@@ -4,6 +4,7 @@ import torch
 from torch import nn
 
 from regional_feature_extractor import RegionalFeatureExtractor
+from uncertainty_head import RegionalUncertaintyHead, regional_reliability
 
 
 class TransformerAdapter(nn.Module):
@@ -60,6 +61,8 @@ class EdgeFaceTransformerAdapter(nn.Module):
         self.backbone = backbone
         self.adapter = TransformerAdapter()
         self.regional_extractor = RegionalFeatureExtractor(feature_channels=100)
+        self.rgb_uncertainty_head = RegionalUncertaintyHead(feature_dim=100)
+        self.thermal_uncertainty_head = RegionalUncertaintyHead(feature_dim=100)
 
     def encoded_stage2_tokens(self, stage2: torch.Tensor) -> torch.Tensor:
         tokens = stage2.flatten(2).transpose(1, 2)
@@ -102,6 +105,33 @@ class EdgeFaceTransformerAdapter(nn.Module):
         return {
             "global_embedding": global_embedding,
             "regional_features": regional_features,
+        }
+
+    def forward_with_uncertainty(
+        self,
+        rgb: torch.Tensor,
+        thermal: torch.Tensor,
+        landmarks: torch.Tensor,
+    ) -> dict[str, torch.Tensor]:
+        """Return paired regional uncertainty outputs without changing forward()."""
+        rgb_output = self.forward(rgb, landmarks, return_regional_features=True)
+        thermal_output = self.forward(thermal, landmarks, return_regional_features=True)
+        rgb_uncertainty = self.rgb_uncertainty_head(rgb_output["regional_features"])
+        thermal_uncertainty = self.thermal_uncertainty_head(
+            thermal_output["regional_features"]
+        )
+        combined, reliability = regional_reliability(
+            rgb_uncertainty, thermal_uncertainty
+        )
+        return {
+            "global_rgb_embedding": rgb_output["global_embedding"],
+            "global_thermal_embedding": thermal_output["global_embedding"],
+            "rgb_regional_features": rgb_output["regional_features"],
+            "thermal_regional_features": thermal_output["regional_features"],
+            "rgb_uncertainty": rgb_uncertainty,
+            "thermal_uncertainty": thermal_uncertainty,
+            "combined_uncertainty": combined,
+            "regional_reliability": reliability,
         }
 
 

@@ -1,0 +1,11 @@
+epoch,train_loss,validation_loss,train_valid_ranking_pairs_per_batch,validation_valid_ranking_pairs_per_batch,checkpoint
+1,0.6716027281114033,0.6638987064361572,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_01.pt
+2,0.6627934404781887,0.653009037176768,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_02.pt
+3,0.6527774546827588,0.640714426835378,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_03.pt
+4,0.6418547034263611,0.6275429129600525,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_04.pt
+5,0.6305397387061801,0.6140265663464864,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_05.pt
+6,0.6193581691810063,0.6007378101348877,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_06.pt
+7,0.6086504544530597,0.5880667765935262,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_07.pt
+8,0.5986538827419281,0.5764083663622538,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_08.pt
+9,0.589500218629837,0.5657687187194824,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_09.pt
+10,0.5811747525419507,0.5560081402460734,189.85714285714286,175.0,D:\RP\e3_d_objective_diagnostic\e3_d4\checkpoints\epoch_10.pt

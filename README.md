@@ -187,6 +187,24 @@ The visualizer writes regional boxes and a `diagnostic_report.csv` under
 `sftl54_regional_visualizations/`. Because the source map is only 7x7,
 the report includes both continuous box dimensions and touched-cell spans.
 
+## 8. Phase 3: modality-specific uncertainty
+
+`uncertainty_head.py` adds separate RGB and thermal MLP heads over the
+`[B, 4, 100]` regional features. Log uncertainty is clamped to `[-4, 4]`
+before reliability calculation. Paired reliability is
+`softmax(-(s_rgb + s_thermal))`; the default model forward remains unchanged.
+
+The E3 control experiment retains global contrastive alignment and RGB
+self-distillation and adds the heteroscedastic regional matching objective.
+It does not use learned reliability weights for alignment.
+
+```powershell
+& ".\.venv311\Scripts\python.exe" ".\test_uncertainty_head.py"
+& ".\.venv311\Scripts\python.exe" ".\sftl54_experiment_3_train.py" --epochs 1
+& ".\.venv311\Scripts\python.exe" ".\visualize_uncertainty.py" --count 20 --checkpoint ".\Experiment_3_Uncertainty_smoke.pt"
+& ".\.venv311\Scripts\python.exe" ".\diagnose_uncertainty_robustness.py" --count 20 --checkpoint ".\Experiment_3_Uncertainty_smoke.pt"
+```
+
 ## 6) Important interpretation notes
 
 - The paper reports experimental settings such as `batch size = 256`, `learning rate = 1e-4`, `epochs = 20`, `lambda = 0.75`, and `margin = 0`.

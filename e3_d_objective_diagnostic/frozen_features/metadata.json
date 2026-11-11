@@ -1,0 +1,135 @@
+{
+  "checkpoint": "D:\\RP\\Experiment_3_Uncertainty_best.pt",
+  "checkpoint_sha256": "821c312dc332ecbfed64272b50e867bf72dff2bc341518df284226228c86fa03",
+  "device": "cpu",
+  "seed": 42,
+  "batch_size": 64,
+  "model_parameters_unchanged": true,
+  "checkpoint_unchanged": true,
+  "regional_feature_shape": [
+    4,
+    100
+  ],
+  "distance_shape": [
+    4
+  ],
+  "feature_normalization": "RegionalFeatureExtractor applies L2 normalization over the last dimension.",
+  "distance_calculation": "1 - cosine_similarity(rgb_regional_features, thermal_regional_features, dim=-1)",
+  "invalid_sample_handling": "Samples are preserved; valid_regions records per-region non-zero finite boxes.",
+  "ordering": "DataLoader uses shuffle=False; pair_key order is preserved within each split.",
+  "split_subject_overlap_checked": true,
+  "split_pair_overlap_checked": true,
+  "extraction": [
+    {
+      "split": "train",
+      "sample_count": 1772,
+      "batch_size": 64,
+      "extraction_seconds": 12.757954799999425,
+      "artifact": "train_features.pt",
+      "artifact_bytes": 6647057,
+      "invalid_region_count": 0,
+      "invalid_sample_count": 0,
+      "rgb_shape": [
+        1772,
+        4,
+        100
+      ],
+      "thermal_shape": [
+        1772,
+        4,
+        100
+      ],
+      "distance_shape": [
+        1772,
+        4
+      ]
+    },
+    {
+      "split": "val",
+      "sample_count": 176,
+      "batch_size": 64,
+      "extraction_seconds": 1.2909331000009843,
+      "artifact": "val_features.pt",
+      "artifact_bytes": 662459,
+      "invalid_region_count": 0,
+      "invalid_sample_count": 0,
+      "rgb_shape": [
+        176,
+        4,
+        100
+      ],
+      "thermal_shape": [
+        176,
+        4,
+        100
+      ],
+      "distance_shape": [
+        176,
+        4
+      ]
+    },
+    {
+      "split": "test",
+      "sample_count": 565,
+      "batch_size": 64,
+      "extraction_seconds": 4.867884900002537,
+      "artifact": "test_features.pt",
+      "artifact_bytes": 2121158,
+      "invalid_region_count": 0,
+      "invalid_sample_count": 0,
+      "rgb_shape": [
+        565,
+        4,
+        100
+      ],
+      "thermal_shape": [
+        565,
+        4,
+        100
+      ],
+      "distance_shape": [
+        565,
+        4
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "split": "train",
+      "sample_count": 1772,
+      "distance_max_abs_error": 0.0,
+      "all_finite": true,
+      "normalized_rgb_mean_norm": 1.0,
+      "normalized_thermal_mean_norm": 1.0,
+      "invalid_region_count": 0
+    },
+    {
+      "split": "val",
+      "sample_count": 176,
+      "distance_max_abs_error": 0.0,
+      "all_finite": true,
+      "normalized_rgb_mean_norm": 1.0,
+      "normalized_thermal_mean_norm": 1.0,
+      "invalid_region_count": 0
+    },
+    {
+      "split": "test",
+      "sample_count": 565,
+      "distance_max_abs_error": 0.0,
+      "all_finite": true,
+      "normalized_rgb_mean_norm": 1.0,
+      "normalized_thermal_mean_norm": 1.0,
+      "invalid_region_count": 0
+    }
+  ],
+  "subject_counts": {
+    "train": 100,
+    "val": 10,
+    "test": 32
+  },
+  "split_counts": {
+    "train": 1772,
+    "val": 176,
+    "test": 565
+  }
+}
