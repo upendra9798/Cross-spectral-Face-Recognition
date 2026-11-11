@@ -47,7 +47,7 @@ def _pairing_key_is_valid(filename: str) -> bool:
 
 
 def load_metadata(zip_path: str) -> pd.DataFrame:
-    """Read subject-level metadata from the Excel file inside the ZIP archive."""
+    # """Read subject-level metadata from the Excel file inside the ZIP archive."""
     with zipfile.ZipFile(zip_path, "r") as z:
         df = pd.read_excel(io.BytesIO(z.read("sftl/metadata.xlsx")), header=1)#converts those bytes into something pandas can read.
     df = df.rename(columns={"Unnamed: 0": "subject_id", "Unnamed: 1": "gender"})
@@ -56,7 +56,7 @@ def load_metadata(zip_path: str) -> pd.DataFrame:
 
 
 def _candidate_paths_in_split(zf: zipfile.ZipFile, split: str, modality: str) -> List[str]:
-    """Return image paths for one split and modality from the open archive."""
+    # """Return image paths for one split and modality from the open archive."""
     modality_prefix = {
         "rgb": f"sftl/rgb/{split}/",
         "thermal": f"sftl/iron/{split}/images/",

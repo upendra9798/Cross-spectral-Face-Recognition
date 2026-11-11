@@ -16,6 +16,9 @@ The workflow is:
 - `sftl54_edgeface_baseline.py` — baseline pretrained EdgeFace evaluation
 - `sftl54_xedgeface_train.py` — xEdgeFace adaptation training script
 - `sftl54_xedgeface_evaluate.py` — evaluation script for trained checkpoints
+- `sftl54_transformer_adapter.py` — Phase 1 additive Stage-2 Transformer adapter
+- `sftl54_experiment_1_train.py` — Phase 1 training script
+- `sftl54_experiment_1_evaluate.py` — Phase 1 evaluation script
 - `sftl54_processed/` — processed dataset crops and manifest
 - `otroshi-edgeface-ce86851/` — local EdgeFace model code and pretrained checkpoints
 - `sftl54_xedgeface_best.pt` — default trained checkpoint
@@ -125,7 +128,43 @@ cd D:\RP
     --checkpoint ".\sftl54_xedgeface_ln_st_s0_best.pt"
 ```
 
-## 5) Important interpretation notes
+## 5) Experiment 1: Transformer Adapter
+
+Experiment 1 keeps the EdgeFace-XS convolutional backbone and adds one
+lightweight Transformer encoder after Stage 2. The verified Stage-2 tensor is
+`[B, 100, 7, 7]`, which becomes 49 tokens of width 100. Mean-pooled
+Transformer tokens are projected to 512 dimensions and added residually to the
+original EdgeFace embedding. The projection is zero-initialized, so the
+experiment starts from the original representation rather than replacing it.
+
+Train the full Phase 1 experiment:
+
+```powershell
+cd D:\RP
+& ".\.venv311\Scripts\python.exe" ".\sftl54_experiment_1_train.py" `
+    --batch-size 256 `
+    --epochs 20 `
+    --learning-rate 1e-4 `
+    --lambda-distillation 0.75 `
+    --margin 0 `
+    --seed 42 `
+    --output ".\Experiment_1_Transformer_Adapter.pt"
+```
+
+Evaluate both RGB-to-thermal and thermal-to-RGB retrieval:
+
+```powershell
+& ".\.venv311\Scripts\python.exe" ".\sftl54_experiment_1_evaluate.py" `
+    --checkpoint ".\Experiment_1_Transformer_Adapter.pt"
+```
+
+The CPU smoke test used one training and one validation batch only; its
+metrics are diagnostic and must not be interpreted as the final experiment
+result. A complete run is required before comparing accuracy against the
+40.88%/68.32% RGB-to-thermal and 40.53%/68.67% thermal-to-RGB xEdgeFace
+baseline.
+
+## 6) Important interpretation notes
 
 - The paper reports experimental settings such as `batch size = 256`, `learning rate = 1e-4`, `epochs = 20`, `lambda = 0.75`, and `margin = 0`.
 - The project uses the SF-TL54 dataset and its own subject split, so results should be reported for this dataset specifically.
