@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,7 @@ from torchvision import transforms
 
 PROJECT_ROOT = Path(__file__).parent
 DEFAULT_MANIFEST = PROJECT_ROOT / "sftl54_processed" / "manifest.csv"
+DEFAULT_LANDMARK_MANIFEST = PROJECT_ROOT / "sftl54_processed" / "landmarks.csv"
 
 
 class SFTL54PairDataset(Dataset):
@@ -22,12 +24,29 @@ class SFTL54PairDataset(Dataset):
         manifest_path: str | Path = DEFAULT_MANIFEST,
         split: str | None = None,
         transform: transforms.Compose | None = None,
+        landmark_manifest_path: str | Path = DEFAULT_LANDMARK_MANIFEST,
     ) -> None:
         self.manifest_path = Path(manifest_path)
         if not self.manifest_path.is_absolute():
             self.manifest_path = PROJECT_ROOT / self.manifest_path
 
         self.records = pd.read_csv(self.manifest_path)
+        landmark_path = Path(landmark_manifest_path)
+        if not landmark_path.is_absolute():
+            landmark_path = PROJECT_ROOT / landmark_path
+        if landmark_path.exists():
+            landmark_records = pd.read_csv(landmark_path)
+            landmark_columns = {"split", "pair_key", "landmarks_112"}
+            if not landmark_columns.issubset(landmark_records.columns):
+                raise ValueError("Landmark manifest has an invalid schema.")
+            self.records = self.records.merge(
+                landmark_records[["split", "pair_key", "landmarks_112"]],
+                on=["split", "pair_key"],
+                how="left",
+                validate="one_to_one",
+            )
+        else:
+            raise FileNotFoundError(f"Missing landmark manifest: {landmark_path}")
         if split is not None:
             valid_splits = {"train", "val", "test"}
             if split not in valid_splits:
@@ -68,6 +87,9 @@ class SFTL54PairDataset(Dataset):
             "label": torch.tensor(int(record["subject_id"]), dtype=torch.long),
             "subject_id": int(record["subject_id"]),
             "pair_key": record["pair_key"],
+            "landmarks": torch.tensor(
+                json.loads(record["landmarks_112"]), dtype=torch.float32
+            ),
         }
 
 

@@ -17,6 +17,9 @@ The workflow is:
 - `sftl54_xedgeface_train.py` — xEdgeFace adaptation training script
 - `sftl54_xedgeface_evaluate.py` — evaluation script for trained checkpoints
 - `sftl54_transformer_adapter.py` — Phase 1 additive Stage-2 Transformer adapter
+- `regional_feature_extractor.py` — landmark-guided ROIAlign features from encoded Stage-2 tokens
+- `test_regional_feature_extractor.py` — Phase 2 shape, normalization, gradient, and checkpoint tests
+- `visualize_regional_features.py` — Phase 2 regional-box visualizations and 7x7 coverage report
 - `sftl54_experiment_1_train.py` — Phase 1 training script
 - `sftl54_experiment_1_evaluate.py` — Phase 1 evaluation script
 - `sftl54_processed/` — processed dataset crops and manifest
@@ -163,6 +166,26 @@ metrics are diagnostic and must not be interpreted as the final experiment
 result. A complete run is required before comparing accuracy against the
 40.88%/68.32% RGB-to-thermal and 40.53%/68.67% thermal-to-RGB xEdgeFace
 baseline.
+
+## 7. Phase 2: Landmark-guided regional features
+
+The optional regional path preserves the existing global `[B, 512]` output.
+It exposes Transformer-encoded Stage-2 tokens as a `[B, 100, 7, 7]` spatial
+map and applies landmark-guided ROIAlign pooling for left eye, right eye,
+nose, and mouth regions. The normalized regional output is `[B, 4, 100]`.
+The dataset reads the verified `landmarks_112` values from
+`sftl54_processed/landmarks.csv`.
+
+Run the Phase 2 checks and visual diagnostics with:
+
+```powershell
+& ".\.venv311\Scripts\python.exe" ".\test_regional_feature_extractor.py"
+& ".\.venv311\Scripts\python.exe" ".\visualize_regional_features.py" --count 20
+```
+
+The visualizer writes regional boxes and a `diagnostic_report.csv` under
+`sftl54_regional_visualizations/`. Because the source map is only 7x7,
+the report includes both continuous box dimensions and touched-cell spans.
 
 ## 6) Important interpretation notes
 

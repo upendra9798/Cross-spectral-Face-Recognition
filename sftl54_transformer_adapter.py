@@ -3,6 +3,8 @@ from __future__ import annotations
 import torch
 from torch import nn
 
+from regional_feature_extractor import RegionalFeatureExtractor
+
 
 class TransformerAdapter(nn.Module):
     """A small self-attention adapter for EdgeFace-XS Stage 2 features."""
@@ -57,8 +59,27 @@ class EdgeFaceTransformerAdapter(nn.Module):
         super().__init__()
         self.backbone = backbone
         self.adapter = TransformerAdapter()
+        self.regional_extractor = RegionalFeatureExtractor(feature_channels=100)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def encoded_stage2_tokens(self, stage2: torch.Tensor) -> torch.Tensor:
+        tokens = stage2.flatten(2).transpose(1, 2)
+        positions = self.adapter.positional_embedding
+        if positions.shape[1] != tokens.shape[1]:
+            positions = positions.transpose(1, 2)
+            positions = torch.nn.functional.interpolate(
+                positions,
+                size=stage2.shape[-2:],
+                mode="bilinear",
+                align_corners=False,
+            ).flatten(2).transpose(1, 2)
+        return self.adapter.encoder(tokens + positions)
+
+    def forward(
+        self,
+        x: torch.Tensor,
+        landmarks: torch.Tensor | None = None,
+        return_regional_features: bool = False,
+    ) -> torch.Tensor | dict[str, torch.Tensor]:
         model = self.backbone.model
         x = model.stem(x)
         x = model.stages[0](x)
@@ -68,7 +89,20 @@ class EdgeFaceTransformerAdapter(nn.Module):
         x = model.stages[3](stage2)
         x = model.norm_pre(x)
         backbone_embedding = model.head(x)
-        return backbone_embedding + self.adapter(stage2)
+        global_embedding = backbone_embedding + self.adapter(stage2)
+        if not return_regional_features:
+            return global_embedding
+        if landmarks is None:
+            raise ValueError("landmarks are required when regional features are requested.")
+        encoded_tokens = self.encoded_stage2_tokens(stage2)
+        encoded_map = encoded_tokens.transpose(1, 2).reshape(
+            encoded_tokens.shape[0], self.adapter.channels, *stage2.shape[-2:]
+        )
+        regional_features = self.regional_extractor(encoded_map, landmarks)
+        return {
+            "global_embedding": global_embedding,
+            "regional_features": regional_features,
+        }
 
 
 def configure_transformer_student(

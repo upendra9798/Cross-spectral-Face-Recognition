@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source": "SFTL54 iron labels.jsonl",
+  "coordinate_system": {
+    "source": "original thermal image pixels",
+    "output": "112x112 processed face crop pixels",
+    "crop_margin": 0.35,
+    "crop_geometry": "square face box expanded by 35 percent, rounded and clipped before resize"
+  },
+  "canonical_landmarks": [
+    "chin_01", "chin_02", "chin_03", "chin_04", "chin_05", "chin_06",
+    "chin_07", "chin_08", "chin_09", "chin_10", "chin_11", "chin_12",
+    "chin_13", "chin_14", "chin_15", "chin_16", "chin_17",
+    "left_eyebrow_01", "left_eyebrow_02", "left_eyebrow_03",
+    "left_eyebrow_04", "left_eyebrow_05",
+    "right_eyebrow_01", "right_eyebrow_02", "right_eyebrow_03",
+    "right_eyebrow_04", "right_eyebrow_05",
+    "nose_bridge_01", "nose_bridge_02", "nose_bridge_03", "nose_bridge_04",
+    "nose_tip_01", "nose_tip_02", "nose_tip_03", "nose_tip_04", "nose_tip_05",
+    "left_eye_01", "left_eye_02", "left_eye_03", "left_eye_04",
+    "left_eye_05", "left_eye_06",
+    "right_eye_01", "right_eye_02", "right_eye_03", "right_eye_04",
+    "right_eye_05", "right_eye_06",
+    "mouth_01", "mouth_02", "mouth_03", "mouth_04", "mouth_05", "mouth_06"
+  ],
+  "regions": {
+    "left_eye": {
+      "landmark_indices": [36, 37, 38, 39, 40, 41],
+      "source_groups": ["left_eye"]
+    },
+    "right_eye": {
+      "landmark_indices": [42, 43, 44, 45, 46, 47],
+      "source_groups": ["right_eye"]
+    },
+    "nose": {
+      "landmark_indices": [27, 28, 29, 30, 31, 32, 33, 34, 35],
+      "source_groups": ["nose_bridge", "nose_tip"]
+    },
+    "mouth": {
+      "landmark_indices": [48, 49, 50, 51, 52, 53],
+      "source_groups": ["lip_p1", "lip_p2", "lip_p3", "lip_p4", "lip_p5", "lip_p6"]
+    }
+  }
+}
